@@ -15,6 +15,6 @@ bash ./setupApp.sh
 
 To use the tool, make sure you have first run the setup script, then run:
 ```
-npm run start
+npm run stat
 ```
 

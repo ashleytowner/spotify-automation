@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-		"start": "tsc libraryToJson.ts && node libraryToJson.js",
-		"auth": "tsc getToken.ts && node getToken.js"
+    "start": "tsc libraryToJson.ts && node libraryToJson.js > library.json",
+    "auth": "tsc getToken.ts && node getToken.js"
   },
   "author": "",
   "license": "ISC",
