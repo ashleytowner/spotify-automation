@@ -1,5 +1,5 @@
 .env
 outputs/
 node_modules/
-.js
+*.js
 library.json
