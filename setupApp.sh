@@ -12,5 +12,6 @@ else
 	echo "ENCODED_CLIENT=${encoded}" >> .env
 	tsc getToken.ts
 	node getToken.js
+	rm getToken.js
 fi
 
