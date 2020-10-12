@@ -62,7 +62,7 @@ async function getTrackInfo(trackId: string, complete: boolean = false) {
 async function main() {
 	try {
 		getLikedSongs().then(x => {
-			console.log(x);
+			console.log(JSON.stringify(x));
 		})
 	} catch (err) {
 		console.error(err)
