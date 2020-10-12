@@ -10,8 +10,7 @@ else
 	echo "CLIENT_ID=${sfyClientId}" >> .env
 	echo "CLIENT_SECRET=${sfyClientSecret}" >> .env
 	echo "ENCODED_CLIENT=${encoded}" >> .env
-	tsc getToken.ts
-	node getToken.js
+	npm run auth
 	rm getToken.js
 fi
 
