@@ -1,5 +1,6 @@
 import * as express from 'express';
 import * as dotenv from 'dotenv';
+import * as fs from 'fs';
 import axios from 'axios';
 dotenv.config();
 const app = express();
@@ -18,7 +19,14 @@ app.get('/', (req, res) => {
 			Authorization: `Basic ${process.env.ENCODED_CLIENT}`
 		}
 	}).then(tkn => {
-		res.send(`Token: ${tkn.data.access_token}`);
+		fs.appendFile('./.env', `TOKEN=${tkn.data.access_token}`, (error) => {
+			if (error) {
+				res.send('There was an error. Please try again.')
+				return;
+			}
+			res.send('You may now close this window');
+			return;
+		})
 	}).catch(err => {
 		res.status(500).send("Something went wrong")
 		console.error(err.message)
@@ -29,5 +37,6 @@ app.get('/', (req, res) => {
 
 const scopes = encodeURIComponent('user-library-read user-read-private playlist-read-private');
 var runningApp = app.listen(port, () => {
+	console.log('Click this link and log into spotify:')
 	console.log(`https://accounts.spotify.com/authorize?response_type=code&client_id=${process.env.CLIENT_ID}&redirect_uri=${callback}&scope=${scopes}`)
 })

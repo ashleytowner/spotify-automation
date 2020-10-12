@@ -1,3 +1,4 @@
 .env
 outputs/
 node_modules/
+.js
