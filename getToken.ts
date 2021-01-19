@@ -13,6 +13,7 @@ app.get('/', (req, res) => {
 		redirect_uri: encodeURIComponent('http://localhost:3000/'),
 		code: req.query.code
 	};
+	
 	const body = Object.keys(data).map(key => `${key}=${data[key]}`).join('&');
 	axios.post(`https://accounts.spotify.com/api/token`, body, {
 		headers: {
